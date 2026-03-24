@@ -44,6 +44,10 @@ yarn-error.*
 .env*.local
 !.env.example
 
+# Firebase mobile config (contains app identifiers + API key)
+google-services.json
+GoogleService-Info.plist
+
 # typescript
 *.tsbuildinfo
 
