@@ -1,3 +1,7 @@
+# OS
+.DS_Store
+Thumbs.db
+
 # Logs
 logs
 *.log
@@ -134,3 +138,17 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Editors / IDEs (optional local settings)
+.idea/
+*.swp
+*.swo
+
+# Vitest (cache under node_modules in some setups)
+.vitest/
+
+# Vercel CLI (per app or monorepo)
+.vercel/
+
+# Turborepo
+.turbo/
