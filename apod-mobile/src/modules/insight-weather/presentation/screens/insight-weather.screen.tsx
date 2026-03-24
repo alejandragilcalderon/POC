@@ -5,6 +5,8 @@ import { ScreenSurface } from "@/shared/ui/components/screen-surface";
 import { useInsightWeather } from "@/modules/insight-weather/presentation/hooks/use-insight-weather";
 import { InsightWeatherWidget } from "@/modules/insight-weather/presentation/widgets/insight-weather.widget";
 import { spacing, strings } from "@/shared/resources";
+import { logScreenView } from "@/shared/services/telemetry.service";
+import { TopBannerAd } from "@/shared/ui/components/top-banner-ad";
 import { AppColors } from "@/shared/ui/theme/colors";
 
 export function InsightWeatherScreen() {
@@ -18,6 +20,7 @@ export function InsightWeatherScreen() {
   useFocusEffect(
     useCallback(() => {
       runLoad();
+      void logScreenView("Insight_Weather");
     }, [runLoad])
   );
 
@@ -29,6 +32,7 @@ export function InsightWeatherScreen() {
 
   return (
     <ScreenSurface>
+      <TopBannerAd />
       <View style={styles.header}>
         <Text style={styles.title} accessibilityRole="header">
           {strings.insightWeather.screenTitle}

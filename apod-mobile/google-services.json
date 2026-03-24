@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "327692377973",
+    "project_id": "poc-nasa-d4f42",
+    "storage_bucket": "poc-nasa-d4f42.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327692377973:android:96483c90efb680a7a03d3c",
+        "android_client_info": {
+          "package_name": "com.alejandragil.apodmobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJYqcGbUCvMRLFUgBPtxMfZWAro-K61Eg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
