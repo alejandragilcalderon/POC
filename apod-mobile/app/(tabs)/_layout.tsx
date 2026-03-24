@@ -8,7 +8,7 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        sceneContainerStyle: { paddingTop: spacing.tabScenePaddingTop },
+        sceneStyle: { paddingTop: spacing.tabScenePaddingTop },
         tabBarStyle: {
           backgroundColor: AppColors.background,
           borderTopColor: "rgba(141, 162, 255, 0.2)",

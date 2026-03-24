@@ -32,12 +32,12 @@ function mapFailure(error: InsightWeatherFailure): { title: string; message: str
   switch (error.kind) {
     case "network":
       return {
-        title: "Can’t reach the server",
+        title: strings.errors.networkTitle,
         message: friendlyNetworkMessage(error.message),
       };
     case "upstream":
       return {
-        title: "Couldn’t load weather",
+        title: strings.errors.insightUpstreamTitle,
         message: formatUpstreamMessage(error.status, error.message),
       };
   }

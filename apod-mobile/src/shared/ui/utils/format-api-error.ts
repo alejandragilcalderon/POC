@@ -1,24 +1,26 @@
+import { strings } from "@/shared/resources";
+
 /**
  * Human-readable copy for HTTP errors (avoid showing raw codes alone).
  */
 export function friendlyHttpStatus(status: number): string {
   const map: Record<number, string> = {
     400: "The server couldn’t understand this request.",
-    401: "You’re not allowed to access this. Check sign-in or API keys.",
-    403: "Access to this resource was denied.",
-    404: "We couldn’t find that endpoint. Check your API base URL.",
-    408: "The request took too long.",
-    429: "Too many requests. Wait a moment and try again.",
-    502: "Bad gateway — the backend may be restarting.",
-    503: "Service unavailable — try again shortly.",
-    504: "Gateway timeout — the server took too long to respond.",
+    401: "You’re not signed in or your access key isn’t valid.",
+    403: "You don’t have permission to open this.",
+    404: "We couldn’t find that address. It may be mistyped in the app settings.",
+    408: "The request took too long and was stopped.",
+    429: "Too many requests right now. Please wait a bit and try again.",
+    502: "The service is having trouble connecting upstream. It may be restarting.",
+    503: "The service is temporarily unavailable. Try again shortly.",
+    504: "The server took too long to answer.",
   };
   if (map[status]) return map[status];
   if (status >= 500) {
-    return "The server had a problem. Please try again in a moment.";
+    return "Something went wrong on the server.";
   }
   if (status >= 400) {
-    return "The request didn’t succeed. Check your connection and settings.";
+    return "This request didn’t work. Check your connection or try again.";
   }
   return "Something unexpected happened.";
 }
@@ -35,15 +37,15 @@ export function formatUpstreamMessage(status: number, serverMessage: string): st
   const base = friendlyHttpStatus(status);
   const trimmed = serverMessage?.trim() ?? "";
   if (!trimmed || GENERIC_SERVER.has(trimmed)) {
-    return `${base} (code ${status})`;
+    return `${base}\n\n${strings.errors.upstreamRetryHint} (Error ${status})`;
   }
-  return `${base}\n\nDetails: ${trimmed}`;
+  return `${base}\n\n${strings.errors.upstreamDetailsLabel}\n${trimmed}`;
 }
 
 export function friendlyNetworkMessage(raw: string): string {
   const t = raw?.trim() ?? "";
   if (!t || t === "Network request failed" || t === "Failed to fetch") {
-    return "We couldn’t reach your API. Check Wi‑Fi, that the backend is running, and that EXPO_PUBLIC_API_BASE_URL is correct (use your computer’s IP for a physical device).";
+    return strings.errors.networkBodyDefault;
   }
-  return `Connection problem: ${t}`;
+  return `We couldn’t finish loading. Here’s what we know:\n\n${t}`;
 }

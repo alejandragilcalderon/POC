@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react-native";
 import { InsightWeatherWidget } from "@/modules/insight-weather/presentation/widgets/insight-weather.widget";
+import { strings } from "@/shared/resources";
 
 describe("InsightWeatherWidget", () => {
   it("renders Sol weather cards on success", () => {
@@ -34,6 +35,6 @@ describe("InsightWeatherWidget", () => {
         refreshing={false}
       />
     );
-    expect(screen.getByText("Couldn’t load weather")).toBeOnTheScreen();
+    expect(screen.getByText(strings.errors.insightUpstreamTitle)).toBeOnTheScreen();
   });
 });
