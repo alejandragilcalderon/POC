@@ -1,5 +1,9 @@
 # POC — NASA APOD & Mars weather
 
+<img width="1290" height="2796" alt="Simulator Screenshot - iPhone 15 Pro Max - 2026-03-23 at 21 39 09" src="https://github.com/user-attachments/assets/dd78bda0-b720-4b50-8bd2-847ffbd1485b" />
+
+<img width="1290" height="2796" alt="Simulator Screenshot - iPhone 15 Pro Max - 2026-03-23 at 21 39 02" src="https://github.com/user-attachments/assets/8331c7e6-58db-47c1-a1f8-633208237887" />
+
 This repository is a small full-stack **NASA** demo: a **Next.js backend** that proxies NASA’s public APIs, and an **Expo / React Native client** that consumes that backend over HTTP. Both apps follow **clean / hexagonal** layering, adapted to each platform.
 
 ## Repository layout
