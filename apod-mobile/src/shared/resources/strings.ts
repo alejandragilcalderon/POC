@@ -14,9 +14,6 @@ export const strings = {
     emptyBody:
       "The API may have returned only metadata (for example validity checks) or an empty archive.",
   },
-  ads: {
-    sponsoredLabel: "Sponsored",
-  },
   errors: {
     /** Shared title when the device cannot reach the backend */
     networkTitle: "You’re offline or we can’t connect",

@@ -7,8 +7,6 @@ import { useApod } from "@/modules/apod/presentation/hooks/use-apod";
 import { ApodErrorMessageWidget } from "@/modules/apod/presentation/widgets/apod-error-message.widget";
 import { ApodFeedWidget } from "@/modules/apod/presentation/widgets/apod-feed.widget";
 import { spacing, strings } from "@/shared/resources";
-import { logScreenView } from "@/shared/services/telemetry.service";
-import { TopBannerAd } from "@/shared/ui/components/top-banner-ad";
 import { AppColors } from "@/shared/ui/theme/colors";
 
 export function ApodHomeScreen() {
@@ -21,13 +19,11 @@ export function ApodHomeScreen() {
   useFocusEffect(
     useCallback(() => {
       loadToday();
-      void logScreenView("APOD_Home");
     }, [loadToday])
   );
 
   return (
     <ScreenSurface>
-      <TopBannerAd />
       <View style={styles.intro}>
         <Text style={styles.introTitle}>{strings.apod.homeTitle}</Text>
         <Text style={styles.introBody}>{strings.apod.homeSubtitle}</Text>

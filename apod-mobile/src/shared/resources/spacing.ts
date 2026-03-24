@@ -10,6 +10,4 @@ export const spacing = {
   sectionGapSm: 8,
   /** Extra inset at the top of tab screen content (below status bar / safe area). */
   tabScenePaddingTop: 12,
-  adTopMargin: 6,
-  adBottomMargin: 10,
 } as const;
